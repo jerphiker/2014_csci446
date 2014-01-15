@@ -1,0 +1,185 @@
+/*
+ * This is Unit 1 for CSCI 446, by Jeremy Kerr. It is incomplete.
+ * 
+ * The features that I feel I have implemented sufficiently are
+ *    HTML 5 with reasonable structure - the page is organized pretty well, and only uses 2 classes to
+ *        differentiate between the left and right columns for the page
+ *    Variabls - I didn't use very many variables, but I used variables for constants I used multiple
+ *        times and demonstrated that I understand how to use variables.
+ *    Nesting - The entire sass document is essentially nested inside the body tag, and I did all of my
+ *        internal elements in the same way the html document was organized.
+ *    Partials - I only used one partial for the custom font.
+ *    Mixins - I used one mixin to set the padding and width throughout the css document. I called it 4
+ *        times. After rereading the requirements, I am not sure if I was supposed to use 2 mixins or use
+ *        a mixin at least twice.
+ *    Operators - I only used these once, to generate a font size variable near the top.
+ *    Use a 2-column format with a full-size header/footer. Include a copyright in the footer - I created
+ *        a full header and a 2 column format that was organized neatly. I did not create a footer.
+ *    Login box with text fields, checkbox, button. - This does exist, and matches the example pretty much
+ *        exactly.
+ *    Sidebar that is slightly smaller than the login section. Includes a centered image and at least 3
+ *        links - This was implemented. The background is highlighted and shows that it is smaller than
+ *        the login, and has a centered picture of a cat, with text above it, and three links underneath.
+ *    Uses a custom font - imported as a partial near the top and used for the headers
+ *    Comments for grader for SASS features - here.
+ * 
+ * Features I did not implement:
+ *    I did not use SASS inheritance.
+ *    I did not create a footer, or add a copyright to the footer.
+ *    There was no footer, so there was no sticky footer.
+ *  
+ * */
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* SassyPage uses html5, has a login box with text fields, checkbox, and button. It also has
+ a sidebar that is smaller than the login section, with a centered image and 3 links. */
+/* line 17, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* This is a partial, and is the source of the custom font used for the headers and post declaration. */
+/* Generated by Font Squirrel (http://www.fontsquirrel.com) on January 14, 2014 */
+@font-face {
+  font-family: 'dubtronicregular';
+  src: url("dubtronic-solid-webfont.eot");
+  src: url("dubtronic-solid-webfont.eot?#iefix") format("embedded-opentype"), url("dubtronic-solid-webfont.woff") format("woff"), url("dubtronic-solid-webfont.ttf") format("truetype"), url("dubtronic-solid-webfont.svg#dubtronicregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Uses a mixin to handle setting padding and width. 
+ * This mixin is used in 4 places, more than the two 
+ * required minimum. */
+/* Variables (colors and font), names indicate what they are used for. */
+/* Uses operators to calculate font size. Numbers were chosen somewhat arbitrarily until
+ * I found a size I liked. Shows that px and % can be used with operators. */
+/* Nesting, uses variables*/
+/* line 63, ../sass/screen.scss */
+body {
+  /* Header has a gray background, purple menu buttons that turn green when hovered over. 
+   * Edges are rounded. The custom font is only used for headers. */
+  /* .posts and .login used to style 2 column format with full header. */
+}
+/* line 66, ../sass/screen.scss */
+body header {
+  background-color: gray;
+  padding: 25px;
+  width: 100%;
+}
+/* line 69, ../sass/screen.scss */
+body header a {
+  color: blue;
+  list-style-type: none;
+  text-decoration: none;
+  margin: 15px;
+  padding: 10px 25px;
+  border-radius: 15px;
+  background-color: purple;
+}
+/* line 78, ../sass/screen.scss */
+body header a:hover {
+  background-color: green;
+}
+/* line 82, ../sass/screen.scss */
+body h1 {
+  font-family: dubtronicregular;
+  font-size: 266.66667%;
+}
+/* line 89, ../sass/screen.scss */
+body .posts {
+  padding: 10px;
+  width: 450px;
+  float: left;
+}
+/* line 93, ../sass/screen.scss */
+body .login {
+  padding: 10px;
+  width: 350px;
+  float: right;
+  align: center;
+}
+/* line 94, ../sass/screen.scss */
+body .login table {
+  border: 1px solid black;
+  margin: auto;
+}
+/* line 101, ../sass/screen.scss */
+body .login .sidebar {
+  color: blue;
+  background-color: gray;
+  text-align: center;
+  padding: 10px;
+  width: 80%;
+  margin: 0 auto;
+}
+/* line 104, ../sass/screen.scss */
+body .login .sidebar h3 {
+  font-family: dubtronicregular;
+}
+/* line 107, ../sass/screen.scss */
+body .login .sidebar a {
+  color: blue;
+}

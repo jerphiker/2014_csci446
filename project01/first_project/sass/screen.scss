@@ -1,0 +1,115 @@
+/*
+ * This is Unit 1 for CSCI 446, by Jeremy Kerr. It is incomplete.
+ * 
+ * The features that I feel I have implemented sufficiently are
+ *    HTML 5 with reasonable structure - the page is organized pretty well, and only uses 2 classes to
+ *        differentiate between the left and right columns for the page
+ *    Variabls - I didn't use very many variables, but I used variables for constants I used multiple
+ *        times and demonstrated that I understand how to use variables.
+ *    Nesting - The entire sass document is essentially nested inside the body tag, and I did all of my
+ *        internal elements in the same way the html document was organized.
+ *    Partials - I only used one partial for the custom font.
+ *    Mixins - I used one mixin to set the padding and width throughout the css document. I called it 4
+ *        times. After rereading the requirements, I am not sure if I was supposed to use 2 mixins or use
+ *        a mixin at least twice.
+ *    Operators - I only used these once, to generate a font size variable near the top.
+ *    Use a 2-column format with a full-size header/footer. Include a copyright in the footer - I created
+ *        a full header and a 2 column format that was organized neatly. I did not create a footer.
+ *    Login box with text fields, checkbox, button. - This does exist, and matches the example pretty much
+ *        exactly.
+ *    Sidebar that is slightly smaller than the login section. Includes a centered image and at least 3
+ *        links - This was implemented. The background is highlighted and shows that it is smaller than
+ *        the login, and has a centered picture of a cat, with text above it, and three links underneath.
+ *    Uses a custom font - imported as a partial near the top and used for the headers
+ *    Comments for grader for SASS features - here.
+ * 
+ * Features I did not implement:
+ *    I did not use SASS inheritance.
+ *    I did not create a footer, or add a copyright to the footer.
+ *    There was no footer, so there was no sticky footer.
+ *  
+ * */
+
+
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+/* SassyPage uses html5, has a login box with text fields, checkbox, and button. It also has
+ a sidebar that is smaller than the login section, with a centered image and 3 links. */
+@import "compass/reset";
+/* This is a partial, and is the source of the custom font used for the headers and post declaration. */
+@import "_stylesheet.scss";
+
+/* Uses a mixin to handle setting padding and width. 
+ * This mixin is used in 4 places, more than the two 
+ * required minimum. */
+@mixin padandWid($padding, $width) {
+  padding:$padding;
+  width:$width;
+}
+
+/* Variables (colors and font), names indicate what they are used for. */
+$fancy_font: dubtronicregular;
+$font_color: blue;
+$background_color: gray;
+
+/* Uses operators to calculate font size. Numbers were chosen somewhat arbitrarily until
+ * I found a size I liked. Shows that px and % can be used with operators. */
+$font_size: 800px/300px * 100%;
+
+/* Nesting, uses variables*/
+body{
+/* Header has a gray background, purple menu buttons that turn green when hovered over. 
+ * Edges are rounded. The custom font is only used for headers. */
+  header{
+    background-color:$background_color;
+    @include padandWid(25px, 100%);
+    a{
+      color:$font_color;
+      list-style-type:none;
+      text-decoration:none;
+      margin:15px;
+      padding:10px 25px;
+      border-radius:15px;
+      background-color:purple;
+    }
+    a:hover{
+      background-color:green;
+    }
+  }
+  h1{
+    font:{
+      family:$fancy_font;
+      size:$font_size;
+    }
+  }
+/* .posts and .login used to style 2 column format with full header. */
+  .posts{
+    @include padandWid(10px, 450px);
+    float:left;
+  }
+  .login{
+    table{
+      border:1px solid black;
+      margin:auto;
+    }
+    @include padandWid(10px, 350px);
+    float:right;
+    align:center;
+    .sidebar{
+      color:$font_color;
+      background-color:$background_color;
+      h3{
+        font-family:$fancy_font;
+      }
+      a{
+        color:$font_color;
+      }
+      text-align:center;
+      @include padandWid(10px, 80%);
+      margin:0 auto;
+    }
+  }
+}
