@@ -9,7 +9,7 @@ class Player
       elsif warrior.feel.captive?
         warrior.rescue!
       else
-        warrior.walk!
+        warrior.walk!(:backward)
       end
     elsif warrior.feel.enemy?
       warrior.attack!
