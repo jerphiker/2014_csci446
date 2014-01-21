@@ -4,7 +4,9 @@ class Player
     @currentHealth = warrior.health
     if @currentHealth < @@health  # => Herb is taking damage
       @@health = @currentHealth
-      if warrior.feel.enemy?
+      if warrior.feel.wall?
+        warrior.pivot!
+      elsif warrior.feel.enemy?
         warrior.attack!
       elsif @currentHealth < 9
         warrior.walk!(:backward)
@@ -12,7 +14,9 @@ class Player
         warrior.walk!
       end
     else
-      if warrior.feel.enemy?
+      if warrior.feel.wall?
+        warrior.pivot!
+      elsif warrior.feel.enemy?
         warrior.attack!
       elsif @currentHealth < 20
         @@health = @currentHealth + 2
