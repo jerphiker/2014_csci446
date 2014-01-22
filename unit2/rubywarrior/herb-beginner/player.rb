@@ -3,6 +3,8 @@ class Player
   @@health = PLAYER_HEALTH
   @@pivotCooldown = 0
   
+  @@turn = 0
+  
   def play_turn(warrior)
     @currentHealth = warrior.health
     @lookforward = warrior.look
@@ -24,17 +26,19 @@ class Player
     @walk = 0
     @saveBack = 0
     
-    if @feelFront.empty?
+    if @lookforward[2].enemy? && @lookbackward[1].enemy?
+      @shoot = @shoot + 100
+    end
+    
+    if @feelFront.empty? && !@lookforward[1].enemy?
       @walk = @walk + 1
-      if !@takingDamage
-        @rest = (PLAYER_HEALTH - @currentHealth) / 2
-      end
+      @rest = (PLAYER_HEALTH - @currentHealth) / 2
     elsif @feelFront.stairs?
       @walk = @walk + 100
     elsif @feelFront.enemy?
       @attack = @attack + 1
     elsif @feelFront.captive?
-      @save = @save + 1
+      @save = @save + 15
     elsif @feelFront.wall?
       @pivot = @pivot + 1
     elsif @feelFront.ticking?
@@ -71,7 +75,16 @@ class Player
       @saveback = @saveBack + 10
     end
     
-    chooseMove(@shoot, @pivot, @save, @rest, @attack, @goback, @saveBack, @walk, warrior)
+    if @feelFront.enemy?
+      @shoot = 0
+    end
+    
+    if @@turn > 0
+      chooseMove(@shoot, @pivot, @save, @rest, @attack, @goback, @saveBack, @walk, warrior)
+    else
+      @@turn = 1
+      warrior.pivot!
+    end
   end
   
   def chooseMove(shoot, pivot, save, rest, attack, goback, saveBack, walk, warrior)
