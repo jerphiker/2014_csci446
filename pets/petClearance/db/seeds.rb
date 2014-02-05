@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Pets.delete_all
+Pet.delete_all
 
-Pets.create!(
+Pet.create!(
   type: 'dog',
   name: 'foofy',
   breed: 'black lab',
@@ -16,7 +16,7 @@ Pets.create!(
   image_url: 'American-Eskimo-dog.jpg'
 )
 
-Pets.create!(
+Pet.create!(
   type: 'dog',
   name: 'poofy',
   breed: 'brown lab',
@@ -24,7 +24,7 @@ Pets.create!(
   image_url: 'cute-dog.jpg'
 )
 
-Pets.create!(
+Pet.create!(
   type: 'dog',
   name: 'loofy',
   breed: 'teal lab',
