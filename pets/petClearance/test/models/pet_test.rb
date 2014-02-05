@@ -5,7 +5,8 @@ class PetTest < ActiveSupport::TestCase
   #   assert true
   # end
   test "pet attributes must not be empty" do
-    pet = Pet.newassert pet.invalid?
+    pet = Pet.new
+    assert pet.invalid?
     assert pet.errors[:petType].any?
     assert pet.errors[:name].any?
     assert pet.errors[:breed].any?
