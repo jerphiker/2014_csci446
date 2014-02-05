@@ -2,7 +2,7 @@ PetClearance::Application.routes.draw do
   get "foster_home/index"
   resources :pets
 
-  root 'fosterHome#index', as: 'fosterHome'
+  root 'foster_home#index', as: 'foster_home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
