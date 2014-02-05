@@ -9,7 +9,7 @@
 Pet.delete_all
 
 Pet.create!(
-  type: 'dog',
+  petType: 'dog',
   name: 'foofy',
   breed: 'black lab',
   description: %{<p>A big ole, run of the lug, cheesy chasey cheeseburger chugger.</p>},
