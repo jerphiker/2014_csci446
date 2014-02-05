@@ -17,7 +17,7 @@ Pet.create!(
 )
 
 Pet.create!(
-  type: 'dog',
+  petType: 'dog',
   name: 'poofy',
   breed: 'brown lab',
   description: %{<p>A big ole, run of the lug, dicey kitey micey mincer.</p>},
@@ -25,7 +25,7 @@ Pet.create!(
 )
 
 Pet.create!(
-  type: 'dog',
+  petType: 'dog',
   name: 'loofy',
   breed: 'teal lab',
   description: %{<p>A big ole, run of the lug, chooby poogy derby rerby.</p>},
