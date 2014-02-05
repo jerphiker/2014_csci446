@@ -16,18 +16,3 @@ Pet.create!(
   image_url: 'American-Eskimo-dog.jpg'
 )
 
-Pet.create!(
-  type: 'dog',
-  name: 'poofy',
-  breed: 'brown lab',
-  description: %{<p>A big ole, run of the lug, dicey kitey micey mincer.</p>},
-  image_url: 'cute-dog.jpg'
-)
-
-Pet.create!(
-  type: 'dog',
-  name: 'loofy',
-  breed: 'teal lab',
-  description: %{<p>A big ole, run of the lug, chooby poogy derby rerby.</p>},
-  image_url: 'Dog-Computer-Wallpaper.jpg'
-)
