@@ -1,4 +1,5 @@
 PetClearance::Application.routes.draw do
+  get "foster_home/index"
   resources :pets
 
   # The priority is based upon order of creation: first created -> highest priority.
