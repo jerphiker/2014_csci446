@@ -21,7 +21,7 @@
         <td><%= pet.petType %></td>
         <td><%= pet.name %></td>
         <td><%= pet.breed %></td>
-        <td class="list_description"><%= truncate(strip_tags(pet.description)), length: 80 %></td>
+        <td class="list_description"><%= truncate(strip_tags(pet.description), length: 80) %></td>
         <td><%= pet.image_url %></td>
         <td><%= link_to 'Show', pet %></td>
         <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
