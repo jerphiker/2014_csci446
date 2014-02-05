@@ -13,3 +13,10 @@ two:
   breed: MyString
   description: MyText
   image_url: MyString
+  
+cat:
+  petType: "cat"
+  name: "Doge"
+  breed: "Siamese"
+  description: "Extremely well nourished"
+  image_url: "no_image.png"

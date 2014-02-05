@@ -4,6 +4,7 @@ class PetTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+  fixtures :pets
   test "pet attributes must not be empty" do
     pet = Pet.new
     assert pet.invalid?
