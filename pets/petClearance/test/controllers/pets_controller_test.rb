@@ -3,6 +3,13 @@ require 'test_helper'
 class PetsControllerTest < ActionController::TestCase
   setup do
     @pet = pets(:one)
+    @update = {
+      petType: "dog",
+      name: "todd",
+      breed: "border collie",
+      description: "test test test",
+      image_url: "dog.png"
+    }
   end
 
   test "should get index" do
