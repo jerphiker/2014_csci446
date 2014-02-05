@@ -27,10 +27,10 @@ class PetTest < ActiveSupport::TestCase
     ok = %w{ dog.gif dog.jpg dog.png DOG.GIF DOG.Gif http://a.b.c/x/y/z/dog.gif }
     bad = %w{ dog.doc dog.gif/more dog.gif.more }
     ok.each do |name|
-      assert new_product(name).valid?, "#{name} should be valid"
+      assert new_pet(name).valid?, "#{name} should be valid"
     end
     bad.each do |name|
-      assert new_product(name).invalid?, "#{name} should be invalid"
+      assert new_pet(name).invalid?, "#{name} should be invalid"
     end
   end
 end
