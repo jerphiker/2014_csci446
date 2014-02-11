@@ -1,5 +1,4 @@
 class CartsController < ApplicationController
-  include Store
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
